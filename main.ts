@@ -1,7 +1,7 @@
 huskylens.initI2c()
 huskylens.initMode(protocolAlgorithm.ALGORITHM_TAG_RECOGNITION)
 DFRobotMaqueenPluss.setRGBLight(RGBLight.RGBA, Color.RED)
-serial.redirectToUSB()
+DFRobotMaqueenPluss.servoRun(Servos.S2, -150)
 basic.forever(function () {
     huskylens.request()
     basic.showString("" + (huskylens.getBox_S(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)))
@@ -15,9 +15,17 @@ basic.forever(function () {
         } else {
             DFRobotMaqueenPluss.mototStop(Motors.ALL)
             DFRobotMaqueenPluss.setRGBLight(RGBLight.RGBA, Color.YELLOW)
+            DFRobotMaqueenPluss.servoRun(Servos.S2, 150)
+            basic.pause(200)
+            DFRobotMaqueenPluss.mototRun(Motors.ALL, Dir.CCW, 40)
+            basic.pause(200)
+            DFRobotMaqueenPluss.mototStop(Motors.ALL)
+            DFRobotMaqueenPluss.servoRun(Servos.S2, -150)
+            basic.pause(1000)
         }
     } else {
         DFRobotMaqueenPluss.setRGBLight(RGBLight.RGBA, Color.RED)
         DFRobotMaqueenPluss.mototStop(Motors.ALL)
+        DFRobotMaqueenPluss.servoRun(Servos.S2, -150)
     }
 })
