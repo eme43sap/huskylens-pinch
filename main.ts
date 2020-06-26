@@ -7,9 +7,11 @@ basic.forever(function () {
     basic.showString("" + (huskylens.getBox_S(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock)))
     if (huskylens.getBox_S(1, HUSKYLENSResultType_t.HUSKYLENSResultBlock) == 1) {
         serial.writeNumber(huskylens.readeBlock_index(1, Content1.height, 1))
-        if (huskylens.readeBlock_index(1, Content1.height, 1) <= 300) {
-            DFRobotMaqueenPluss.mototRun(Motors.ALL, Dir.CW, 29)
+        if (huskylens.readeBlock_index(1, Content1.height, 1) <= 75) {
+            DFRobotMaqueenPluss.mototRun(Motors.ALL, Dir.CW, 40)
             DFRobotMaqueenPluss.setRGBLight(RGBLight.RGBA, Color.GREEN)
+            basic.pause(100)
+            DFRobotMaqueenPluss.mototStop(Motors.ALL)
         } else {
             DFRobotMaqueenPluss.mototStop(Motors.ALL)
             DFRobotMaqueenPluss.setRGBLight(RGBLight.RGBA, Color.YELLOW)
