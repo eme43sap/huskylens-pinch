@@ -1,0 +1,22 @@
+{
+    "name": "huskylens-pinch",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "Huskylens": "github:dfrobot/pxt-huskylens#aef9dc1b1e9d569b9de510f4c3fcbed66274577e",
+        "MaqueenPlus": "github:dfrobot/pxt-dfrobot-maqueenplus#v1.1.0"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
